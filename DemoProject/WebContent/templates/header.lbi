@@ -1,0 +1,42 @@
+<!--
+        ==================================================
+        Header Section Start
+        ================================================== -->
+<header id="top-bar" class="navbar-fixed-top animated-header">
+  <div class="container">
+    <div class="navbar-header"> 
+      <!-- responsive nav button -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <!-- /responsive nav button --> 
+      
+      <!-- logo -->
+      <div class="navbar-brand"> <a href="../home.html" > <img src="../images/logo.jpg" alt="" class="img-responsive"> </a> </div>
+      <!-- /logo --> 
+    </div>
+    <!-- main menu -->
+    <nav class="collapse navbar-collapse navbar-right" role="navigation">
+      <div class="main-menu">
+        <ul class="nav navbar-nav navbar-right">
+          <li> <a href="../home.html" class="active">Home</a> </li>
+					<li><a href="../about.html">About</a></li>
+          <li><a href="../status.html">Status</a></li>
+          <li><a href="../apply.html">Apply</a></li>
+          <li><a href="../login.html">Login</a></li>
+          <li class="dropdown"> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="../images/avater-2.jpg" class="img-responsive profile-img" title="Name of User" alt="Name of User"/>
+							My Profile <span class="caret"></span> 
+						</a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="../settings.html">Settings</a></li>
+                <li><a href="../login.html">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- /main nav --> 
+  </div>
+</header>
