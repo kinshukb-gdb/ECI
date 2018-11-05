@@ -18,10 +18,6 @@ Eclipse Neon.3
 Apache Tomcat 8.5.24
 
 
-Architecture : 
-![alt tag](https://goo.gl/images/xYL7Vz)
-
-
 
 
 
