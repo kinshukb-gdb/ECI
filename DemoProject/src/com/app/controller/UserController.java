@@ -1,5 +1,4 @@
 package com.app.controller;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -60,32 +59,17 @@ public class UserController {
 	@PostMapping("/login")
 	public String processLoginForm(User user, HttpSession hs, Model map) {
 		User validUser= new User();
-		System.out.println("***********login");
-	
 		try {
-			
-			//System.out.println("inside login ");
 			validUser = service.validateUser(user.getEmail(), user.getPassword());
-		//	System.out.println("7777777777"+validUser.getAppl().isApp_status());
-			/*int uniqueId=validUser.getAppl().getUniqueId();
-			System.out.println("appId"+uniqueId);*/
 			byte[]imgContent = validUser.getUserImage();
-		    String url="data:image/jpeg;base64,"+Base64.encode(imgContent);
-		    //System.out.println("------------"+url);
-			//map.addAttribute("url",url);
+		    	String url="data:image/jpeg;base64,"+Base64.encode(imgContent);
 			hs.setAttribute("url",url);
-			
-			
-
 			if (validUser != null) {
 				hs.setAttribute("validUser", validUser);
-				System.out.println("***********in if********");
 				if((validUser.getUserRole().getRole()).equals("Admin"))
 				return "admin/home";
 				
 				else
-				System.out.println("*******in else*******");
-				//hs.setAttribute("appStatus", application);
 				return "redirect:dashboard";
 			}
 			else
@@ -199,9 +183,7 @@ public class UserController {
 	public String showDashboard(HttpSession hs, Model map) {
 
 		User userPojo = (User) hs.getAttribute("validUser");
-		// System.out.println("*********************************"+userPojo);
 		String role = userPojo.getUserRole().getRole();
-
 		boolean ageStatus = false;
 		// SimpleDateFormat sd=new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = userPojo.getDob();
@@ -286,14 +268,8 @@ public class UserController {
 
 	@GetMapping("/voterid")
 	public String showVoterId(Model map, User userPojo) {
-		/*
-		 * Date date1=userPojo.getDob(); Date date2=new Date(); long
-		 * timediff=date2.getTime()-date1.getTime(); long
-		 * days=timediff/(1000*60*60*24); int year=(int)days/365;
-		 */
 		int vid = service.generateVid();
 		map.addAttribute("vid", vid);
-		// map.addAttribute("age",year);
 		return "voterid";
 	}
 }

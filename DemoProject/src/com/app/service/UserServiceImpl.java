@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService
 {
 	@Autowired
 	private UserDao dao;
+
 	@Override
 	public User validateUser(String email, String pass) {
 		return dao.validateUser(email, pass);
@@ -52,9 +53,10 @@ public class UserServiceImpl implements UserService
 		}
 		return num;
 	}
-		@Override
-		public int generateVid() 
-		{
+	
+	@Override
+	public int generateVid() 
+	{
 			Random random = new Random();
 			int num = random.nextInt(99999) + 99999;
 			if (num < 100000 || num > 999999) 
@@ -79,9 +81,7 @@ public class UserServiceImpl implements UserService
 	public void updatePassword(User userPojo) {
 		dao.updatePassword(userPojo);
 		
-	}
-
-	
+	}	
 
 	@Override
 	public String deleteUser(int userid) 
@@ -89,6 +89,4 @@ public class UserServiceImpl implements UserService
 		User u=dao.getUserById(userid);
 		return dao.deleteUser(u);
 	}
-
-	
 }

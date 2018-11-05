@@ -16,7 +16,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User validateUser(String email, String pass) {
-		System.out.println("********************"+email+ ""+pass);
 		String str = "select u from User u where u.email=:em and u.password=:pass";
 		return sf.getCurrentSession().createQuery(str, User.class).setParameter("em", email).setParameter("pass", pass)
 				.getSingleResult();
@@ -64,9 +63,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public String deleteUser(User user)
 	{
-		sf.getCurrentSession().delete(user);;
+		sf.getCurrentSession().delete(user);
 		return "user Deleted Successfully";
 	}
-
-	
 }

@@ -32,13 +32,6 @@ public class AdminController
 	@GetMapping("/showList")
 	public String showList(Model map, Application app) 
 	{
-		
-		System.out.println("inside Admin Controller");
-		/*Application validApp=null;
-		validApp = (Application)service.appList();
-		byte[]imgContent =validApp.getUser().getUserImage();
-	    String url="data:image/jpeg;base64,"+Base64.encode(imgContent);*/
-		
 		List<String> url = new ArrayList<String>();
 		List<Application> applist = service.appList();
 		for (Application application : applist) 
@@ -61,17 +54,12 @@ public class AdminController
 		return "redirect:admin/showList";
 	}
 	
-	
 	@GetMapping("/vid")
 	public String generateVid(@RequestParam int id)
 	{
 		System.out.println("id  :" +id );
 		Application app=service.getApplication(id);
 		app.setVid_status(true);
-		
 		return "redirect:showList";
-	}
-	
-	
-	
+	}	
 }

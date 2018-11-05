@@ -16,18 +16,20 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Autowired
 	ApplicationDao dao;
+
 	@Override
 	public String sendApp(Application app)
-	{
-		
+	{		
 		return dao.sendApp(app);
 	}
+
 	@Override
 	public List<Application> appList() 
 	{   
 		
 		return dao.appList();
 	}
+	
 	@Override
 	public Application validApp(int uniqueId) {
 		// TODO Auto-generated method stub

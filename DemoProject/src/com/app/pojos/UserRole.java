@@ -42,7 +42,6 @@ public class UserRole
 	public void setUserRoleId(Integer userRoleId) {
 		this.userRoleId = userRoleId;
 	}
-
 	
 	@Column(name = "role", nullable = false, length = 50)
 	public String getRole() {

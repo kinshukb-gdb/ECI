@@ -39,29 +39,24 @@ public class User
 	private UserRole userRole;
 	private byte[] userImage;
 	private Application appl;
-	
 		
-	
 	@OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 	@JoinColumn
 	public Application getAppl() {
 		return appl;
 	}
 
-
 	public void setAppl(Application appl) {
 		this.appl = appl;
 	}
-
 
 	public User()
 	{
 		this.userRole = new UserRole();
 	}
 
-
 	public User(String fname, String lname, String email, String state, String city, String gender, Date dob,
-			String mobile, UserRole userRole) {
+		String mobile, UserRole userRole) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -74,14 +69,12 @@ public class User
 		this.userRole = userRole;
 	}
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id", nullable = false, unique = true)
 	public Integer getUserId() {
 		return userId;
 	}
-
 	
 	public void setUserId(Integer userId) {
 		this.userId = userId;
@@ -113,7 +106,6 @@ public class User
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-
 	
 	@Column(name="email",nullable=false,length=50,unique=true)
 	public String getEmail() {
@@ -193,7 +185,6 @@ public class User
 	public String toString() {
 		return "User [fname=" + fname + ", lname=" + lname + ", email=" + email + ", state=" + state + ", city=" + city
 				+ ", gender=" + gender + ", dob=" + dob + ", mobile=" + mobile + ", userRole=" + userRole + "]";
-	}
+	}	
 	
-
 }

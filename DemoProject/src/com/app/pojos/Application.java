@@ -15,20 +15,18 @@ public class Application {
 	private User user;
 	private boolean app_status;
 	private boolean vid_status;
- 
-
-	
+ 	
  public boolean isVid_status() {
 		return vid_status;
 	}
-
-	public void setVid_status(boolean vid_status) {
+	
+public void setVid_status(boolean vid_status) {
 		this.vid_status = vid_status;
 	}
 
 @OneToOne
- @JoinColumn
-	public User getUser() {
+@JoinColumn
+public User getUser() {
 	return user;
 }
 
@@ -36,25 +34,20 @@ public void setUser(User user) {
 	this.user = user;
 }
 
-	public boolean isApp_status() {
+public boolean isApp_status() {
 	return app_status;
 }
-
-
 
 public void setApp_status(boolean app_status) {
 	this.app_status = app_status;
 }
 
+public Application() {
+	super();
+}
 
-
-	public Application() {
-		super();
-	}
-
-
-	public Application(String fatherName, String motherName, String address, Integer uniqueId, User user,
-			boolean app_status, boolean vid_status) {
+public Application(String fatherName, String motherName, String address, Integer uniqueId, User user,
+		boolean app_status, boolean vid_status) {
 		super();
 		this.fatherName = fatherName;
 		this.motherName = motherName;
@@ -119,7 +112,6 @@ public void setApp_status(boolean app_status) {
 		App_id = app_id;
 	}
 
-
 	@Column(name = "user_doc", columnDefinition = "longblob")
 	public byte[] getDoc() {
 		return doc;
@@ -128,5 +120,4 @@ public void setApp_status(boolean app_status) {
 	public void setDoc(byte[] doc) {
 		this.doc = doc;
 	}
-
 }
